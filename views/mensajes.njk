@@ -9,8 +9,8 @@
 <body>
 <h1>Añade Mensajes!</h1>
 <ul>
-  {% for item in lista %}
-    <li><b>{{ item.mensaje }}</b></li>
+  {% for mensaje in lista %}
+    <li><b>{{ mensaje }}</b></li>
   {% endfor %}
 </ul>
   <form action="/mensajes" method="POST">

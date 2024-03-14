@@ -1,22 +1,27 @@
 const fs = require("fs");
-
+const path = require("path")
 function getAll() {
     const mensajes = require("./mensajes.json"); 
     return mensajes;
   }
 
+  function dic(){
+    const diccionario = require("./tokipona.json")
+    return diccionario
+  }
 
 function add(mensaje) {
     const mensajes = getAll();
-    mensajes.push({ mensaje });
-    fs.writeFileSync("./db/mensajes.json", JSON.stringify(mensajes, null, 2));
+    console.log(typeof mensajes,)
+    mensajes.push(mensaje);
+    fs.writeFileSync("./mensajes.json", JSON.stringify(mensajes, null, 2));
   }
 
   function createList() {
     const lista = getAll();
     let html = ""
     lista.forEach((item)=>{
-      html +=  `${item.mensaje}</p>`
+      html +=  `<p>${item.mensaje}</p>`
     })
     return html
   }
@@ -36,5 +41,6 @@ function add(mensaje) {
     getAll,
     add,
     createList,
-    getIdList
+    getIdList,
+    dic
   }

@@ -1,15 +1,19 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
 const routers = express.Router();
-const { getAll, add, createList} = require("./mensajes");
+const { getAll, add, createList,getIdList} = require("./mensajes");
 
-routers.get("/njkTest", (req, res) => {
+routers.get("/", (req, res) => {
     const lista = getAll();
     res.render("mensajes.njk", { lista });
   });
-  
+
   routers.get("/mensajes", (req, res) => {
-    res.json(getAll());
+    const respuesta =  {
+        "mensajes" : getAll(),
+        "status": "okay"
+    }
+    res.json(respuesta);
   });
 
   routers.get("/mensaje/:id", (req, res) => {
