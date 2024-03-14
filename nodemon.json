@@ -1,6 +1,0 @@
-{
-    "watch": ["*.html", "*.css", "*.js", "*.json", "*.njk"],
-    "ext": "js,json,njk",
-    "ignore": ["node_modules/**/*"],
-    "exec": "node index.js"
-  }

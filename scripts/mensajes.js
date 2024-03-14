@@ -3,7 +3,7 @@ const path = require("path");
 
 
 function getAll() {
-  const mensajes = require("../db/mensajes.json"); //esto funciona!
+  const mensajes = require("../db/mensajes.json");
   return mensajes;
 }
 
@@ -17,11 +17,8 @@ function add(mensaje, autor) {
 
 function createList() {
   const lista = getAll();
-  let html = ""
-  lista.forEach((item)=>{
-    html += ` ${item.mensaje}</p>`
-  })
-  return html
+  const mensajes = lista.map(item => item.mensaje);
+  return mensajes.join(", ");
 }
 
 

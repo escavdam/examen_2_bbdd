@@ -38,8 +38,6 @@ routers.get("/mensajes/reset", (req, res) => {
 routers.get("/mensaje/:id", (req, res) => {
     const id = parseInt(req.params.id); 
     const mensaje = getIdList(id); 
-  
-
     res.send(mensaje);
   });
   
