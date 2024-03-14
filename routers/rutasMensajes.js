@@ -1,5 +1,6 @@
 const express = require('express')
 const fs = require('fs')
+const moment = require('moment')
 const { getAll, add } = require("../scripts/mensajes.js");
 
 const routers = express.Router();
@@ -33,6 +34,7 @@ routers.get("/mensaje/:id", (req, res) =>{
 });
 
 //segunda parte del examen
+//Hola!
 routers.get("/saludo", (req, res) =>{
     const nombre = req.query.nombre
     if (nombre) {
@@ -40,6 +42,12 @@ routers.get("/saludo", (req, res) =>{
     } else {
         res.send('Bienvenido!');
     }
+});
+
+//¿Que día es hoy?
+routers.get("/fecha", (req, res) => {
+    const fechaActual = moment().format('YYYY-MM-DD HH:mm:ss');
+    res.send(`La fecha actual es: ${fechaActual}`);
 });
 
 
