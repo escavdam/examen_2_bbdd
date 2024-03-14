@@ -64,6 +64,32 @@ routers.get("/diccionario/:palabra", (req, res) =>{
     }
 });
 
+//Random
+function randomNumber() {
+    return Math.random();
+}
+function randomBoolean() {
+    return Math.random() < 0.5;
+}
+function randomRange100() {
+    return Math.floor(Math.random() * 101);
+}
+function randomRange255() {
+    return Math.floor(Math.random() * 256); 
+}
+
+routers.get("/random", (req, res) => {
+    const valoresAleatorios = {
+        randomNumber: randomNumber(),
+        randomBoolean: randomBoolean(),
+        randomRange100: randomRange100(),
+        randomRange255: randomRange255(),
+    }
+
+    res.json(valoresAleatorios);
+});
+
+
 
 module.exports = routers;
 
