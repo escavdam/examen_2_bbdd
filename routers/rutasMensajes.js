@@ -32,6 +32,17 @@ routers.get("/mensaje/:id", (req, res) =>{
     res.send(lista[mensajeId])
 });
 
+//segunda parte del examen
+routers.get("/saludo", (req, res) =>{
+    const nombre = req.query.nombre
+    if (nombre) {
+        res.send(`¡Bienvenido, ${nombre}!`);
+    } else {
+        res.send('Bienvenido!');
+    }
+});
+
+
 
 module.exports = routers;
 
