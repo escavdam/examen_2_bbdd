@@ -76,8 +76,12 @@ app.get('/1337', (req, res) => {
 })
 
 app.get ('/tokipona', (req, res) =>{
+    const palabra = req.query.palabra
+    diccionario = require("./tokipona.json")
+    console.log(diccionario.a)
+    const palabraEligido = diccionario[palabra]
     
-}
-)
+    res.send(palabraEligido)
+})
 
 app.listen(3000, () => console.log('Server open in port 3000')) 
