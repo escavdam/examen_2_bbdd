@@ -1,7 +1,7 @@
 const express = require('express')
 const fs = require('fs')
 const moment = require('moment')
-const { getAll, add } = require("../scripts/mensajes.js");
+const { getAll, add, dic } = require("../scripts/mensajes.js");
 
 const routers = express.Router();
 
@@ -50,6 +50,19 @@ routers.get("/fecha", (req, res) => {
     res.send(`La fecha actual es: ${fechaActual}`);
 });
 
+//Diccionario toki pona > español
+routers.get("/diccionario/:palabra", (req, res) =>{
+    const diccionario = dic();
+    const palabra = req.params.palabra
+    if (palabra in diccionario) {
+        res.send({
+            esp: diccionario[palabra],
+            tokipona: [palabra] 
+        });
+    } else {
+        res.send({ error: 'La palabra no se encontró en el diccionario' });
+    }
+});
 
 
 module.exports = routers;

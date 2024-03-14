@@ -11,7 +11,14 @@ function add(mensaje) {
   fs.writeFileSync("./db/mensajes.json", JSON.stringify(mensajes, null));
 }
 
+//diccionario
+function dic(){
+  const traduccion = require("../diccionario/tokipona.json");
+  return traduccion;
+}
+
 module.exports = {
   getAll,
-  add
+  add,
+  dic
 };
