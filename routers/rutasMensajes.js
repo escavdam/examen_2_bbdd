@@ -89,7 +89,5 @@ routers.get("/random", (req, res) => {
     res.json(valoresAleatorios);
 });
 
-
-
 module.exports = routers;
 
