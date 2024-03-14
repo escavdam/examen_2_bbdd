@@ -93,6 +93,7 @@ Tienes un archivo `diccionario.json` ya listo con la siguiente estructura en la 
 }
 ```
 
+
 Si el usuario llama a la ruta `GET /diccionario/moku` debería devolver el siguiente json:
 ```json
 {
