@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Enviar Mensajes</title>
+</head>
+<body>
+  <h1>Enviar un mensaje</h1>
+  <form action="/mensaje" method="post">
+    <label for="message">Mensaje:</label>
+    <br>
+    <input type="text" id="message" name="message" required>
+    <br>
+    <br>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <br>
+  <h2>Mensajes almacenados</h2>
+  <ul id="messages-list"></ul>
+
+  <script>
+    const messagesList = document.getElementById('messages-list');
+
+    const showMessages = (messages) => {
+      messagesList.innerHTML = '';
+
+      messages.forEach(message => {
+        const messageItem = document.createElement('li');
+        messageItem.textContent = message;
+        messagesList.appendChild(messageItem);
+      });
+    };
+
+    const getMessages = () => {
+      fetch('/mensajes')
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === 'success') {
+            showMessages(data.mensajes);
+          } else {
+            console.error('Error al obtener los mensajes');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    };
+
+    getMessages();
+  </script>
+</body>
+</html>

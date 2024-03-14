@@ -1,4 +1,6 @@
+
 ## Setup
+
 1. Inicia un proyecto de NodeJS, instala `express` y crea un archivo `index.js` vacío.
 
 ## Almacenamiento de mensajes
@@ -7,6 +9,7 @@
 
 Utiliza tu servidor para almacenar mensajes en un array. Cada vez que un usuario haga una petición `POST /mensaje` el servidor debe almacenar el mensaje en un array, guardar un `.json` con el array y devolver un mensaje de éxito.
 La estructura del `.json` puede ser simple:
+
 ```json
 [
     "mensaje 1",
